@@ -7,6 +7,7 @@ const startMessage = document.querySelector('.message-start');
 const loseMessage = document.querySelector('.message-lose');
 const winMessage = document.querySelector('.message-win');
 const button = document.querySelector('.button');
+const score = document.querySelector('.game-score');
 
 button.addEventListener('click', (buttonEvent) => {
   buttonEvent.preventDefault();
@@ -25,8 +26,6 @@ button.addEventListener('click', (buttonEvent) => {
   loseMessage.classList.add('hidden');
   winMessage.classList.add('hidden');
 });
-
-const score = document.querySelector('.game-score');
 
 document.addEventListener('keydown', (keyEvent) => {
   if (game.getStatus() !== Game.gameStatus.playing) {
@@ -55,6 +54,7 @@ document.addEventListener('keydown', (keyEvent) => {
   if (!canMove) {
     return;
   }
+
   score.textContent = game.getScore();
   game.fillFreeCell();
   game.updateBorder();

@@ -105,7 +105,7 @@ class Game {
     this.transpose();
 
     const changed = this.moveLeft();
-    
+
     this.transpose();
 
     return changed;
@@ -149,16 +149,12 @@ class Game {
 
   fillFreeCell() {
     const emptyCells = getEmptyCells(this.state);
-    // let count = Math.min(2, emptyCells.length);
 
     if (emptyCells.length > 0) {
       const index = Math.floor(Math.random() * emptyCells.length);
       const [row, coll] = emptyCells[index];
 
       this.state[row][coll] = getRandomTwoOrFour();
-      // emptyCells.splice(index, 1);
-
-      // count -= 1;
     }
   }
 
